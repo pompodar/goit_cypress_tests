@@ -28,7 +28,18 @@ describe('Visit Homepage and Navigate to Fullstack Course', () => {
     cy.get('[data-modal] input[name="fields[name]"]').type('test');
     cy.get('[data-modal] input[name="fields[phone]"]').type('347526911');
     cy.get('[data-modal] input[name="fields[email]"]').type('test12@qa.team');
-    cy.get('[data-modal] input[name="user-policy"]').check();
+
+    // Click on the label or custom checkbox element to trigger the checkbox check
+    cy.get('.form-term-label').click();
+
+    // Verify that the checkbox is checked
+    cy.get('input[name="user-policy"]').should('be.checked');
+
+    // Verify that the custom checkbox element's appearance changes to reflect the checked state
+    // cy.get('.form-custom-checkbox')
+    //   .should('have.class', 'is-checked') // Adjust this based on your actual implementation
+    //   .find('svg') // Check if SVG changes or any other visual indication of the checked state
+    //   .should('be.visible');
 
     // Submit the form
     cy.get('[data-modal] button.main-btn.btn.btn-primary.text-center.max-w-full').click();
