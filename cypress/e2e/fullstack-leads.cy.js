@@ -30,7 +30,7 @@ describe('Visit Homepage and Navigate to Fullstack Course', () => {
     cy.get('[data-modal] input[name="fields[email]"]').type('test12@qa.team');
 
     // Click on the label or custom checkbox element to trigger the checkbox check
-    cy.get('[data-modal] .form-custom-checkbox').click();
+    // cy.get('[data-modal] .form-custom-checkbox').click();
 
     // Verify that the checkbox is checked
     cy.get('input[name="user-policy"]').should('be.checked');
